@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 
 Meteor.methods({
-  'templates.insert': function(templateTitle, teamId) {
+  'templates.insert': function(templateTitle, teamId, members) {
     return Templates.insert({
       createdAt: new Date(),
       templateTitle,
