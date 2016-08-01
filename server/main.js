@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Teams } from '../imports/collections/teams';
 import { Templates } from '../imports/collections/templates';
-import { Mongo } from 'meteor/mongo';
 
 Meteor.startup(() => {
   Meteor.publish('teams', function() {
