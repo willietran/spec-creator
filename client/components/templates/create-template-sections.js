@@ -20,14 +20,15 @@ class CreateTemplateSections extends Component {
   };
 
   renderSectionList() {
-    console.log(this.props.templates[0]);
-    return this.props.templates.map(template => {
-      return (
-        <li>
-          {template.sections}
-        </li>
-      )
-    });
+    if (this.props.templates[0]) {
+      return this.props.templates[0].sections.map(section => {
+        return (
+          <li key={section}>
+            {section}
+          </li>
+        )
+      });
+    }
   };
 
   render() {
