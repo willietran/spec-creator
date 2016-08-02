@@ -8,7 +8,6 @@ Meteor.methods({
       team: teamId,
       createdBy: this.userId,
       sections: [],
-      content: {}
     });
   },
 
@@ -21,15 +20,10 @@ Meteor.methods({
   // -Create the template creation route
   // -Create the template creation components
 
-  'templates.addSection': function(template, sections, content) {
+  'templates.addSection': function(template, newSection) {
     return Templates.update(
-      template._id,
-      {
-        $push: {
-          sections
-        },
-          content
-      });
+      template, { $push: { sections: newSection } }
+    );
   },
 
 });

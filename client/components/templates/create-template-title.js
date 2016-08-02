@@ -16,7 +16,7 @@ class CreateTemplateTitle extends Component {
         console.log(templateId);
         console.log(teamId);
         console.log(this.props);
-        browserHistory.push(templateId + "/sections");
+        browserHistory.push("create-template/" + templateId);
     });
   }
 
