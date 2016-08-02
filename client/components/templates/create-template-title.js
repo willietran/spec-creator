@@ -14,7 +14,7 @@ class CreateTemplateTitle extends Component {
       this.props.params.teamId,
       (error, templateId) => {
         const teamId = this.props.params.teamId;
-        browserHistory.push(teamId + "/templates/" + templateId);
+        browserHistory.push("/" + teamId + "/templates/" + templateId);
     });
   }
 

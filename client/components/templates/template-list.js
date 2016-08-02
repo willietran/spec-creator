@@ -17,7 +17,7 @@ class TemplateList extends Component {
 
       return (
         <li className="list-group-item" key={template._id}>
-          <Link to={"/" + url}>Template Title: {" " + template.templateTitle}</Link>
+          <Link to={"/" + url}>Template Title: {template.templateTitle}</Link>
           <p className="pull-left">Team: {userTeamName + " | "} </p>
           <button
             className="btn btn-danger pull-right"
@@ -31,9 +31,15 @@ class TemplateList extends Component {
 
   render() {
     return (
-      <ul className="list-group">
-        {this.renderList()}
-      </ul>
+      <div>
+        <button
+          className="btn btn-success">
+            <Link to={"/" + this.props.params.teamId + "/create-template"}>Create Template</Link>
+        </button>
+        <ul className="list-group">
+          {this.renderList()}
+        </ul>
+      </div>
     );
   }
 };
