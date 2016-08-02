@@ -17,11 +17,12 @@ class CreateTemplateSections extends Component {
     Meteor.call('templates.addSection',
       template, newSection
     )
+    this.refs.templateSection.value = '';
   };
 
   renderSectionList() {
-    if (this.props.templates[0]) {
-      return this.props.templates[0].sections.map(section => {
+    if (this.props.templates) {
+      return this.props.templates.sections.map(section => {
         return (
           <li key={section}>
             {section}
@@ -57,5 +58,5 @@ export default createContainer((props) => {
   Meteor.subscribe('templates');
 
   const { templateId } = props.params;
-  return { templates: Templates.find({ _id: templateId }).fetch() };
+  return { templates: Templates.findOne({ _id: templateId }) };
 }, CreateTemplateSections);

@@ -23,7 +23,7 @@ const routes = (
       <Route path="create-team" component={CreateTeam} />
       <Route path="teams" component={TeamMain} />
       <Route path=":teamId/create-template" component={CreateTemplateTitle} />
-      <Route path=":teamId/create-template/:templateId" component={CreateTemplateSections} />
+      <Route path=":teamId/templates/:templateId" component={CreateTemplateSections} />
       <Route path=":teamId/templates" component={TemplateList} />
     </Route>
   </Router>

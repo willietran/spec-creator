@@ -5,15 +5,25 @@ import { Templates } from '../../../imports/collections/templates';
 import { Teams } from '../../../imports/collections/teams';
 
 class TemplateList extends Component {
+  onTemplateRemove(template) {
+    Meteor.call('templates.remove', template)
+  }
+
+
   renderList() {
     return this.props.templates.map(template => {
-      const url = template._id;
+      const url = template.team + "/templates/" + template._id;
       const userTeamName = Teams.findOne({ _id: template.team }).teamName
 
       return (
         <li className="list-group-item" key={template._id}>
-          <Link to={url}>Template Title: {template.templateTitle}</Link>
-          <p>Team: {userTeamName}</p>
+          <Link to={"/" + url}>Template Title: {" " + template.templateTitle}</Link>
+          <p className="pull-left">Team: {userTeamName + " | "} </p>
+          <button
+            className="btn btn-danger pull-right"
+            onClick={() => this.onTemplateRemove(template)}>
+            Remove
+          </button>
         </li>
       );
     });

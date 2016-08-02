@@ -11,6 +11,10 @@ Meteor.methods({
     });
   },
 
+  'templates.remove': function(template) {
+    return Templates.remove(template);
+  },
+
   //TODO:
   // -Create the template section creation route
   // -Create the template section creation components

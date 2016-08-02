@@ -12,11 +12,9 @@ class CreateTemplateTitle extends Component {
     Meteor.call('templates.insert',
       this.refs.templateTitle.value,
       this.props.params.teamId,
-      (error, templateId, teamId) => {
-        console.log(templateId);
-        console.log(teamId);
-        console.log(this.props);
-        browserHistory.push("create-template/" + templateId);
+      (error, templateId) => {
+        const teamId = this.props.params.teamId;
+        browserHistory.push(teamId + "/templates/" + templateId);
     });
   }
 
