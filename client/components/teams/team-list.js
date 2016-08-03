@@ -30,9 +30,16 @@ class TeamList extends Component {
 
   render() {
     return (
-      <ul className="list-group">
-        {this.renderList()}
-      </ul>
+      <div>
+        <button
+          className="btn btn-success">
+            <Link to="/create-team">Create Team</Link>
+        </button>
+
+        <ul className="list-group">
+          {this.renderList()}
+        </ul>
+      </div>
     )
   }
 };

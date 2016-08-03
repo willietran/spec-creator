@@ -9,6 +9,7 @@ import TeamList from './components/teams/team-list';
 import CreateTeam from './components/teams/create-team';
 import CreateTemplateTitle from './components/templates/create-template-title';
 import TemplateList from './components/templates/template-list';
+import CreateTemplateSections from './components/templates/create-template-sections';
 
 // Collections
 import { Teams } from '../imports/collections/teams';
@@ -22,6 +23,7 @@ const routes = (
       <Route path="create-team" component={CreateTeam} />
       <Route path="teams" component={TeamMain} />
       <Route path=":teamId/create-template" component={CreateTemplateTitle} />
+      <Route path=":teamId/templates/:templateId" component={CreateTemplateSections} />
       <Route path=":teamId/templates" component={TemplateList} />
     </Route>
   </Router>
