@@ -15,7 +15,7 @@ Meteor.startup(() => {
     const teamList = Teams.find({ members: email });
     const teamListMap = teamList.map(userTeam => userTeam._id);
 
-    return Templates.find({ team: { $in: teamListMap } });
+    return Templates.find({});
   });
 
   Meteor.publish('specs', function() {

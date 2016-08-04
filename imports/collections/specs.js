@@ -13,11 +13,9 @@ Meteor.methods({
   },
 
   'specs.updateContent': function(spec, contentQuestion, newContent) {
-    // https://docs.mongodb.com/v2.6/reference/operator/update/set/#set-fields-in-embedded-documents
-    const key = "content." + contentQuestion;
     return Specs.update(
       spec._id,
-      { $set: { key: newContent } }
+      { $set: { ["content." + contentQuestion]: newContent } }
     );
   }
 });

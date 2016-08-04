@@ -15,7 +15,7 @@ class CreateSpecTitle extends Component {
     Meteor.call('specs.insert',
       specId,
       teamId,
-      (error) => {
+      (error, specId) => {
         browserHistory.push("/" + teamId + "/specs/" + specId + "/edit/");
       }
     );
