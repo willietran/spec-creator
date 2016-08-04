@@ -1,6 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 
 Meteor.methods({
+
   'specs.insert': function(specTitle, teamId) {
     return Specs.insert({
       createdAt: new Date(),
@@ -12,9 +13,12 @@ Meteor.methods({
   },
 
   'specs.updateContent': function(spec, contentQuestion, newContent) {
+    const pairedValues = {};
+    pairedValues[contentQuestion] = newContent;
+
     return Specs.update(
       spec._id,
-      { $set: { content: { contentQuestion: newContent} } }
+      { $set: { content: pairedValues} }
     );
   }
 });

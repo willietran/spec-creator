@@ -6,23 +6,23 @@ import { Specs } from '../../../imports/collections/specs';
 import { Templates } from '../../../imports/collections/templates';
 
 class EditSpec extends Component {
-  onEditorChange(section) {
-    const content = this.refs.problemInput.value;
-    console.log(this.props.spec.content);
-    Meteor.call('specs.updateContent', this.props.spec, section, content);
+  onEditorChange(contentQuestion) {
+    const newContent = this.refs[contentQuestion].value;
+
+    Meteor.call('specs.updateContent', this.props.spec, contentQuestion, newContent);
   }
 
   renderList() {
     if(this.props.template) {
-      return this.props.template.sections.map(section => {
+      return this.props.template.sections.map(contentQuestion => {
         return (
-          <div key={section}>
-            <label>{section}</label>
+          <div key={contentQuestion}>
+            <label>{contentQuestion}</label>
             <input
-              ref="problemInput"
-              value={this.props.spec.content}
+              ref={contentQuestion}
+              value={this.props.spec.content[contentQuestion]}
               onChange={() =>
-                this.onEditorChange(section)
+                this.onEditorChange(contentQuestion)
               }
             />
           </div>
@@ -32,7 +32,7 @@ class EditSpec extends Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.props.spec);
 
     return (
       <div>
