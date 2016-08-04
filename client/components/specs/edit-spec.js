@@ -9,7 +9,11 @@ class EditSpec extends Component {
   onEditorChange(contentQuestion) {
     const newContent = this.refs[contentQuestion].value;
 
-    Meteor.call('specs.updateContent', this.props.spec, contentQuestion, newContent);
+    Meteor.call('specs.updateContent',
+      this.props.spec,
+      contentQuestion, 
+      newContent
+    );
   }
 
   renderList() {
