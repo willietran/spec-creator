@@ -39,7 +39,9 @@ class SpecList extends Component {
 export default createContainer((props) => {
   Meteor.subscribe('specs');
 
+  const { teamId } = props.params;
+
   return {
-    specs: Specs.find({}).fetch()
+    specs: Specs.find({ team: teamId }).fetch()
   };
 }, SpecList);

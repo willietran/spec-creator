@@ -7,8 +7,15 @@ Meteor.methods({
       specTitle,
       team: teamId,
       createdBy: this.userId,
-      content: {},
+      content: []
     });
+  },
+
+  'specs.updateContent': function(spec, contentQuestion, newContent) {
+    return Specs.update(
+      spec._id,
+      { $set: { content: { contentQuestion: newContent} } }
+    );
   }
 });
 
