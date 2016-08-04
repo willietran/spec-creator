@@ -13,12 +13,14 @@ Meteor.methods({
   },
 
   'specs.updateContent': function(spec, contentQuestion, newContent) {
-    const pairedValues = {};
-    pairedValues[contentQuestion] = newContent;
+    // Instead of an array of objects where each object just has one key-value pair,
+    // make an array of arrays. Each inner array would be exactly 2 elements long. 
+    // (Think of it like a tuple in python.)
+    const questionContentPair = [contentQuestion, newContent];
 
     return Specs.update(
       spec._id,
-      { $set: { content: pairedValues} }
+      { $push: { content: questionContentPair } }
     );
   }
 });
