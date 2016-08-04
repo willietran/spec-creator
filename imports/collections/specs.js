@@ -8,19 +8,16 @@ Meteor.methods({
       specTitle,
       team: teamId,
       createdBy: this.userId,
-      content: []
+      content: {}
     });
   },
 
   'specs.updateContent': function(spec, contentQuestion, newContent) {
-    // Instead of an array of objects where each object just has one key-value pair,
-    // make an array of arrays. Each inner array would be exactly 2 elements long. 
-    // (Think of it like a tuple in python.)
-    const questionContentPair = [contentQuestion, newContent];
-
+    // https://docs.mongodb.com/v2.6/reference/operator/update/set/#set-fields-in-embedded-documents
+    const key = "content." + contentQuestion;
     return Specs.update(
       spec._id,
-      { $push: { content: questionContentPair } }
+      { $set: { key: newContent } }
     );
   }
 });
