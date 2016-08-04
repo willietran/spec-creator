@@ -10,7 +10,7 @@ class TeamList extends Component {
 
   renderList() {
     return this.props.teams.map(team => {
-      const url = team._id + "/templates";
+      const url = team._id + "/specs";
 
       return (
         <li className="list-group-item" key={team._id}>

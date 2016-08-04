@@ -12,12 +12,12 @@ class TemplateList extends Component {
 
   renderList() {
     return this.props.templates.map(template => {
-      const url = template.team + "/templates/" + template._id;
+      const url = "/" + template.team + "/templates/" + template._id;
       const userTeamName = Teams.findOne({ _id: template.team }).teamName
 
       return (
         <li className="list-group-item" key={template._id}>
-          <Link to={"/" + url}>Template Title: {template.templateTitle}</Link>
+          <Link to={url}>Template Title: {template.templateTitle}</Link>
           <p className="pull-left">Team: {userTeamName + " | "} </p>
           <button
             className="btn btn-danger pull-right"
