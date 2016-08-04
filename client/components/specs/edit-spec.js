@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 
@@ -11,7 +13,7 @@ class EditSpec extends Component {
 
     Meteor.call('specs.updateContent',
       this.props.spec,
-      contentQuestion, 
+      contentQuestion,
       newContent
     );
   }
