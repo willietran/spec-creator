@@ -9,6 +9,7 @@ class TeamList extends Component {
   }
 
   renderList() {
+    console.log(this.props.teams);
     return this.props.teams.map(team => {
       const url = team._id + "/specs";
 

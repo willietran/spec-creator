@@ -13,6 +13,7 @@ import CreateTemplateSections from './components/templates/create-template-secti
 import SpecList from './components/specs/spec-list';
 import CreateSpecTitle from './components/specs/create-spec-title';
 import EditSpec from './components/specs/edit-spec';
+import SpecMain from './components/specs/spec-main';
 
 // Collections
 import { Teams } from '../imports/collections/teams';
@@ -31,7 +32,7 @@ const routes = (
       <Route path=":teamId/templates" component={TemplateList} />
       <Route path=":teamId/specs" component={SpecList} />
       <Route path=":teamId/create-spec" component={CreateSpecTitle} />
-      <Route path=":teamId/specs/:specId/edit" component={EditSpec} />
+      <Route path=":teamId/specs/:specId/edit" component={SpecMain} />
     </Route>
   </Router>
 );
