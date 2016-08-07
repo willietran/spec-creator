@@ -34,7 +34,7 @@ Meteor.startup(() => {
     const email = user.emails[0].address;
 
     return Teams.find({
-      members: { $eleMatch: { $eq: email } }
+      members: { $elemMatch: { $eq: email } }
     })
   })
 });

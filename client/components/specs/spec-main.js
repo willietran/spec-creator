@@ -4,6 +4,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 //Components
 import EditSpec from './edit-spec';
 import SpecShare from '../share/spec-share';
+import CreateSpecTitle from './create-spec-title';
 
 //Collections
 import { Specs } from '../../../imports/collections/specs';
@@ -13,8 +14,17 @@ import { Teams } from '../../../imports/collections/teams';
 
 class SpecMain extends Component {
   render() {
+    if (!this.props.spec || !this.props.template || !this.props.team) {
+      return (
+        <div>Loading...</div>
+      );
+    }
+
     return(
       <div>
+        <CreateSpecTitle
+          spec={this.props.spec}
+        />
         <EditSpec
           spec={this.props.spec}
           template={this.props.template}
