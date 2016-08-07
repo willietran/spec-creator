@@ -11,22 +11,20 @@ class SpecShare extends Component {
   }
 
   renderList() {
-    if(this.props.team) {
-      return this.props.team.members.map(member => {
-        return (
-          <li className="list-group-item">
-            <p className="pull-left">{member}</p>
-            <span className="pull-right">
-              <button
-                className="btn btn-danger"
-                onClick={() => this.onMemberRemove(member)}>
-                Remove
-              </button>
-            </span>
-          </li>
-        );
-      });
-    }
+    return this.props.team.members.map(member => {
+      return (
+        <li className="list-group-item" key={member}>
+          <p className="pull-left">{member}</p>
+          <span className="pull-right">
+            <button
+              className="btn btn-danger"
+              onClick={() => this.onMemberRemove(member)}>
+              Remove
+            </button>
+          </span>
+        </li>
+      );
+    });
   }
 
 

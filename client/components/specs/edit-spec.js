@@ -12,28 +12,25 @@ class EditSpec extends Component {
   }
 
   renderList() {
-    if(this.props.template) {
-      return this.props.template.sections.map(contentQuestion => {
-        return (
-          <div key={contentQuestion}>
-            <label>{contentQuestion}</label>
-            <input
-              ref={contentQuestion}
-              value={this.props.spec.content[contentQuestion]}
-              onChange={() =>
-                this.onEditorChange(contentQuestion)
-              }
-            />
-          </div>
-        );
-      });
-    }
+    return this.props.template.sections.map(contentQuestion => {
+      return (
+        <div key={contentQuestion}>
+          <label>{contentQuestion}</label>
+          <input
+            ref={contentQuestion}
+            value={this.props.spec.content[contentQuestion]}
+            onChange={() =>
+              this.onEditorChange(contentQuestion)
+            }
+          />
+        </div>
+      );
+    });
   }
 
   render() {
     return (
       <div>
-        <h2>Your spec</h2>
         {this.renderList()}
       </div>
     );

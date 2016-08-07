@@ -2,10 +2,10 @@ import { Mongo } from 'meteor/mongo';
 
 Meteor.methods({
 
-  'specs.insert': function(specTitle, teamId) {
+  'specs.insert': function(teamId) {
     return Specs.insert({
       createdAt: new Date(),
-      specTitle,
+      specTitle: 'Give me a name...',
       team: teamId,
       createdBy: this.userId,
       content: {}
@@ -16,6 +16,13 @@ Meteor.methods({
     return Specs.update(
       spec._id,
       { $set: { ["content." + contentQuestion]: newContent } }
+    );
+  },
+
+  'specs.updateTitle': function(spec, newSpecTitle) {
+    return Specs.update(
+      spec._id,
+      { $set: { specTitle: newSpecTitle } }
     );
   },
 

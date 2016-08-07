@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Link } from 'react-router';
 
@@ -8,6 +9,20 @@ import { Specs } from '../../../imports/collections/specs';
 class SpecList extends Component {
   onSpecRemove(spec) {
     Meteor.call('specs.remove', spec)
+  }
+
+  onSubmitClick(event) {
+    event.preventDefault;
+    const { teamId } = this.props.params;
+    console.log("Create Spec Pressed: " + teamId)
+
+    Meteor.call('specs.insert',
+      teamId,
+      (error, specId) => {
+        browserHistory.push("/" + teamId + "/specs/" + specId + "/edit/")
+        console.log("SpecId: " + specId)
+      }
+    )
   }
 
 
@@ -36,8 +51,9 @@ class SpecList extends Component {
     return (
       <div>
         <button
-          className="btn btn-success">
-            <Link to={"/" + this.props.params.teamId + "/create-spec"}>Create Spec</Link>
+          className="btn btn-success"
+          onClick={this.onSubmitClick.bind(this)}>
+          Create New Spec
         </button>
         <ul>
           {this.renderList()}
