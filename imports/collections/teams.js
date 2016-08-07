@@ -23,6 +23,10 @@ Meteor.methods({
 
   'teams.addMembers': function(team, email) {
     return Teams.update(team._id, { $push: { members: email } });
+  },
+
+  'teams.removeMembers': function(team, email) {
+    return Teams.update(team._id, { $pull: { members: email } })
   }
 
 });

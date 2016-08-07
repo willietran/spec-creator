@@ -6,6 +6,10 @@ import { Link } from 'react-router';
 import { Specs } from '../../../imports/collections/specs';
 
 class SpecList extends Component {
+  onSpecRemove(spec) {
+    Meteor.call('specs.remove', spec)
+  }
+
 
   renderList() {
     if (this.props) {
@@ -15,6 +19,13 @@ class SpecList extends Component {
         return (
           <li className="list-group-item" key={spec._id}>
             <Link to={url} className="pull-left">Title: {spec.specTitle}</Link>
+            <span className="pull-right">
+              <button
+                className="btn btn-danger"
+                onClick={() => this.onSpecRemove(spec)}>
+                Delete Spec
+              </button>
+            </span>
           </li>
         );
       });

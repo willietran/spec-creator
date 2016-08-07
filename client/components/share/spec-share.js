@@ -4,14 +4,26 @@ class SpecShare extends Component {
   onShareClick() {
     const email = this.refs.email.value;
     Meteor.call('teams.addMembers', this.props.team, email)
-    console.log(this.props.team)
+  }
+
+  onMemberRemove(member) {
+    Meteor.call('teams.removeMembers', this.props.team, member)
   }
 
   renderList() {
     if(this.props.team) {
       return this.props.team.members.map(member => {
         return (
-          <li className="list-group-item">{member}</li>
+          <li className="list-group-item">
+            <p className="pull-left">{member}</p>
+            <span className="pull-right">
+              <button
+                className="btn btn-danger"
+                onClick={() => this.onMemberRemove(member)}>
+                Remove
+              </button>
+            </span>
+          </li>
         );
       });
     }
