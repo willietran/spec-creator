@@ -17,6 +17,10 @@ Meteor.methods({
       spec._id,
       { $set: { ["content." + contentQuestion]: newContent } }
     );
+  },
+
+  'specs.remove': function(spec) {
+    return Specs.remove(spec);
   }
 });
 

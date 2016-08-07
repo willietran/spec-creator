@@ -1,11 +1,4 @@
-// @flow
-
 import React, { Component } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
-
-//Collections
-import { Specs } from '../../../imports/collections/specs';
-import { Templates } from '../../../imports/collections/templates';
 
 class EditSpec extends Component {
   onEditorChange(contentQuestion) {
@@ -38,8 +31,6 @@ class EditSpec extends Component {
   }
 
   render() {
-    console.log(this.props.spec);
-
     return (
       <div>
         <h2>Your spec</h2>
@@ -49,13 +40,4 @@ class EditSpec extends Component {
   }
 };
 
-export default createContainer((props) => {
-  const { specId } = props.params;
-  Meteor.subscribe('specs');
-  Meteor.subscribe('templates');
-
-  return {
-    spec: Specs.findOne(specId),
-    template: Templates.findOne({ _id: 'dpGaZWcWLx3PqGgjH' })
-  };
-}, EditSpec);
+export default EditSpec;

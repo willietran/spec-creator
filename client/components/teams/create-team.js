@@ -11,7 +11,7 @@ class CreateTeam extends Component {
 
     Meteor.call('teams.insert',
       this.refs.teamName.value, (error, teamId) => {
-        browserHistory.push(teamId + "/create-template");
+        browserHistory.push(teamId + "/specs");
       }
     );
   }
