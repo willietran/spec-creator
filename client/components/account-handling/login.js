@@ -14,7 +14,7 @@ class Login extends Component {
         if(error) {
           console.log(error.reason);
         } else {
-          browserHistory.push("/");
+          browserHistory.push("/teams");
         }
 
       }

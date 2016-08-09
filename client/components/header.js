@@ -12,24 +12,38 @@ class Header extends Component {
   }
 
   render() {
+    const currentUserEmail = this.props.currentUser.emails[0].address;
 
     return (
       <nav className="nav navbar-default">
         <div className="navbar-header">
-          <Link to="/" className="navbar-brand">FeaturePad</Link>
+          <Link to="/teams" className="navbar-brand">Spec Creator</Link>
         </div>
         <ul className="nav navbar-nav">
-          <li>
-            <Accounts />
-          </li>
-          <li>
+          <li className="dropdown">
             <a
               href="#"
-              ref="logout"
-              onClick={this.onLogoutClick.bind(this)}
+              className="dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
-              Logout
+              {currentUserEmail} <span className="caret"></span>
             </a>
+            <ul className="dropdown-menu">
+              <li><a href="#">Reset Password</a></li>
+              <li role="separator" className="divider"></li>
+              <li>
+                <a
+                  href="#"
+                  ref="logout"
+                  onClick={this.onLogoutClick.bind(this)}
+                >
+                  Logout
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>

@@ -7,7 +7,7 @@ class CreateSpecTitle extends Component {
   }
 
   render() {
-
+    console.log(this.props.currentUser);
     return (
       <div>
         <label>Title</label>

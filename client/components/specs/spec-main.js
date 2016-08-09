@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
 
 //Components
 import EditSpec from './edit-spec';
 import SpecShare from '../share/spec-share';
 import CreateSpecTitle from './create-spec-title';
+import Header from '../header';
 
 //Collections
 import { Specs } from '../../../imports/collections/specs';
@@ -22,8 +24,12 @@ class SpecMain extends Component {
 
     return(
       <div>
+        <Header
+          currentUser={this.props.currentUser}
+        />
         <CreateSpecTitle
           spec={this.props.spec}
+          currentUser={this.props.currentUser}
         />
         <EditSpec
           spec={this.props.spec}
@@ -50,6 +56,7 @@ export default createContainer((props) => {
   return {
     spec: Specs.findOne(specId),
     template: Templates.findOne({ _id: 'dpGaZWcWLx3PqGgjH' }),
-    team: Teams.findOne({ _id: teamId })
+    team: Teams.findOne({ _id: teamId }),
+    currentUser: Meteor.user()
   }
 }, SpecMain);
