@@ -14,6 +14,8 @@ import SpecList from './components/specs/spec-list';
 import CreateSpecTitle from './components/specs/create-spec-title';
 import EditSpec from './components/specs/edit-spec';
 import SpecMain from './components/specs/spec-main';
+import CreateAccount from './components/account-handling/create-account';
+import Login from './components/account-handling/login';
 
 // Collections
 import { Teams } from '../imports/collections/teams';
@@ -25,6 +27,8 @@ const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={TeamList} />
+      <Route path="sign-up" component={CreateAccount} />
+      <Route path="login" component={Login} />
       <Route path="create-team" component={CreateTeam} />
       <Route path="teams" component={TeamMain} />
       <Route path=":teamId/create-template" component={CreateTemplateTitle} />

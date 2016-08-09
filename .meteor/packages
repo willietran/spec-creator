@@ -21,4 +21,4 @@ react-meteor-data
 twbs:bootstrap@3.3.6
 accounts-base
 accounts-password
-accounts-ui
+accounts-ui-unstyled

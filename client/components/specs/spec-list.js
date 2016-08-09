@@ -48,18 +48,31 @@ class SpecList extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <button
-          className="btn btn-success"
-          onClick={this.onSubmitClick.bind(this)}>
-          Create New Spec
-        </button>
-        <ul>
-          {this.renderList()}
-        </ul>
-      </div>
-    );
+    if(this.props.specs.length === 0) {
+      return(
+        <div>
+          <h3>You have no specs! Create one!</h3>
+          <button
+            className="btn btn-success"
+            onClick={this.onSubmitClick.bind(this)}>
+            Create New Spec
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <button
+            className="btn btn-success"
+            onClick={this.onSubmitClick.bind(this)}>
+            Create New Spec
+          </button>
+          <ul>
+            {this.renderList()}
+          </ul>
+        </div>
+      );
+    }
   }
 };
 

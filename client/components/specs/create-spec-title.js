@@ -7,6 +7,7 @@ class CreateSpecTitle extends Component {
   }
 
   render() {
+
     return (
       <div>
         <label>Title</label>
