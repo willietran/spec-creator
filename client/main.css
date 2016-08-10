@@ -1,8 +1,112 @@
+/*** Padding and Margins ***/
+top-margin-large {
+  margin-top: 60px !important;
+}
+
+top-margin-medium {
+  margin-top: 30px !important;
+}
+
+top-margin-small {
+  margin-top: 10px !important;
+}
+
+/*** Widths and Heights ***/
+.width-100 {
+  width: 100%;
+}
+
+.max-width-825 {
+  max-width: 825px;
+}
+
+.min-width-500 {
+  min-width: 500px;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+/*** List Properties ***/
+.list-group-item {
+  height: 55px;
+}
+
+/*** Text Area and Input Properties ***/
+input, textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  resize: none;
+  display: inline-block;
+  min-height: 40px;
+  color: #47525d;
+  letter-spacing: .4px;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/*** Font Properties ***/
+.title-font {
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: normal;
+  line-height: 48px;
+  margin-bottom: 32px;
+  color: #47525d;
+  letter-spacing: 1.3px;
+}
+
+.lead-font {
+  font-size: 18px;
+  font-family: sans-serif;
+  font-weight: lighter;
+  color: #777;
+}
+
+.response-font {
+  font-family: serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 26px;
+}
+
+/*** Button Properties ***/
 #login-buttons {
   margin: 18px;
   font-size: 14px;
 }
 
-.list-group-item {
-  height: 55px;
+#share-button {
+  background-color: #0066ff;
+  color: #fff;
+  outline: none;
+  font-family: sans-serif;
+  font-weight: normal;
+}
+
+/*** Page Specific Properties ***/
+
+#editor-container {
+  margin-top: 63px;
+  width: 100%;
+  /*position: absolute;*/
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#editor-spec {
+  margin-top: 40px;
+  width: 100%;
+  /*position: absolute;*/
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.navbar-default {
+  background-color: #fff;
+
 }

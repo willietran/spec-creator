@@ -9,13 +9,19 @@ class CreateSpecTitle extends Component {
   render() {
     console.log(this.props.currentUser);
     return (
-      <div>
-        <label>Title</label>
-        <input
-          ref="newSpecTitle"
-          value={this.props.spec.specTitle}
-          onChange={this.onTitleChange.bind(this)}
-        />
+      <div className="row" id="editor-container">
+        <div
+          id="editor-page"
+          className="max-width-825 min-width-500 center"
+        >
+          <input
+            className="width-100 height-200 title-font"
+            ref="newSpecTitle"
+            value={this.props.spec.specTitle}
+            onChange={this.onTitleChange.bind(this)}
+            placeholder="Give me a name..."
+          />
+        </div>
       </div>
     );
   }

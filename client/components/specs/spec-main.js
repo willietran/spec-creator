@@ -4,9 +4,8 @@ import { Meteor } from 'meteor/meteor';
 
 //Components
 import EditSpec from './edit-spec';
-import SpecShare from '../share/spec-share';
 import CreateSpecTitle from './create-spec-title';
-import Header from '../header';
+import SpecHeader from './spec-header';
 
 //Collections
 import { Specs } from '../../../imports/collections/specs';
@@ -22,23 +21,23 @@ class SpecMain extends Component {
       );
     }
 
+  //TODO:
+    //Create SpecHeader
+    //Design EditSpec
+
     return(
       <div>
-        <Header
-          currentUser={this.props.currentUser}
-        />
-        <CreateSpecTitle
-          spec={this.props.spec}
-          currentUser={this.props.currentUser}
-        />
-        <EditSpec
-          spec={this.props.spec}
-          template={this.props.template}
-        />
-        <SpecShare
-          spec={this.props.spec}
-          team={this.props.team}
-        />
+        <SpecHeader />
+        <div className="container">
+          <CreateSpecTitle
+            spec={this.props.spec}
+            currentUser={this.props.currentUser}
+          />
+          <EditSpec
+            spec={this.props.spec}
+            template={this.props.template}
+          />
+        </div>
       </div>
     )
   }

@@ -14,16 +14,25 @@ class EditSpec extends Component {
   renderList() {
     return this.props.template.sections.map(contentQuestion => {
       return (
-        <div key={contentQuestion}>
-          <label>{contentQuestion}</label>
-          <input
-            ref={contentQuestion}
-            value={this.props.spec.content[contentQuestion]}
-            onChange={() =>
-              this.onEditorChange(contentQuestion)
-            }
-          />
+        <div className="row" id="editor-container">
+          <div
+            className="max-width-825 min-width-500 center"
+          >
+            <div key={contentQuestion}>
+              <p className="lead-font">{contentQuestion}</p>
+              <textarea
+                contentEditable="true"
+                className="width-100 response-font"
+                ref={contentQuestion}
+                value={this.props.spec.content[contentQuestion]}
+                onChange={() =>
+                  this.onEditorChange(contentQuestion)
+                }
+              />
+            </div>
+          </div>
         </div>
+
       );
     });
   }
