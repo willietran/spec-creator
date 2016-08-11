@@ -1,14 +1,36 @@
+* {
+  margin: 0;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 /*** Padding and Margins ***/
-top-margin-large {
-  margin-top: 60px !important;
+.top-margin-large {
+  margin-top: 120px;
 }
 
-top-margin-medium {
-  margin-top: 30px !important;
+.top-margin-medium {
+  margin-top: 60px;
 }
 
-top-margin-small {
-  margin-top: 10px !important;
+.top-margin-small {
+  margin-top: 30px;
+}
+
+.margin-none {
+  margin: 0;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
 }
 
 /*** Widths and Heights ***/
@@ -31,6 +53,16 @@ top-margin-small {
 /*** List Properties ***/
 .list-group-item {
   height: 55px;
+}
+
+.list-style-none {
+  list-style: none;
+  padding: 0;
+  line-height: 30px;
+}
+
+.line-height-small {
+  line-height: 20px;
 }
 
 /*** Text Area and Input Properties ***/
@@ -74,6 +106,15 @@ input, textarea {
   line-height: 26px;
 }
 
+.small-font {
+  font-size: 12px;
+}
+
+.link {
+  text-decoration-line: none;
+  color: #fff;
+}
+
 /*** Button Properties ***/
 #login-buttons {
   margin: 18px;
@@ -86,6 +127,25 @@ input, textarea {
   outline: none;
   font-family: sans-serif;
   font-weight: normal;
+}
+
+.create-team-button {
+  padding: 5px 16px;
+  color: #fff
+  border: none;
+  background-color: #007ee5;
+  float: right;
+}
+
+.no-style-button {
+  width   : 80px;
+  background  : none;
+  cursor  : pointer;
+  font-family : 'voltaeftu-regular',Times New Roman;
+  font-size   : 16px;
+  border  : none;
+  margin      : 0px;
+  padding     : 0px;
 }
 
 /*** Page Specific Properties ***/
@@ -109,4 +169,29 @@ input, textarea {
 .navbar-default {
   background-color: #fff;
 
+}
+
+#sidebar-container {
+  width: 320px;
+  height: 100%;
+  min-width: 320px;
+  float: left;
+  position: absolute;
+  background-color: #f6f8fa;
+  top: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 80px;
+  transition: box-shadow .1s ease-in-out;
+}
+
+.sidebar-top {
+  margin: 0 30px;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
 }

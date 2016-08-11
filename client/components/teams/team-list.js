@@ -14,14 +14,13 @@ class TeamList extends Component {
       const url = team._id + "/specs";
 
       return (
-        <li className="list-group-item" key={team._id}>
-          <Link to={url}> Team Name: {team.teamName}</Link>
-          <p className="pull-left">Members: {team.members} | </p>
+        <li key={team._id}>
+          <Link to={url}>{team.teamName}</Link>
           <span className="pull-right">
             <button
-              className="btn btn-danger"
+              className="no-style-button"
               onClick={() => this.onTeamRemove(team)}>
-              Remove
+              <span className="glyphicon glyphicon-trash float-right"></span>
             </button>
           </span>
         </li>
@@ -32,12 +31,17 @@ class TeamList extends Component {
   render() {
     return (
       <div>
-        <button
-          className="btn btn-success">
-            <Link to="/create-team">Create Team</Link>
-        </button>
-
-        <ul className="list-group">
+        <div className="sidebar-top">
+          <span>
+            <a href="#" className="lead-font">FeaturePad</a>
+          </span>
+          <button
+            className="btn create-team-button float-right">
+              <Link className="link" to="/create-team">Create</Link>
+          </button>
+        </div>
+        <h5 className="top-margin-large">Teams</h5>
+        <ul className="list-style-none ">
           {this.renderList()}
         </ul>
       </div>

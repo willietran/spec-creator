@@ -13,14 +13,13 @@ class Header extends Component {
 
   render() {
     const currentUserEmail = this.props.currentUser.emails[0].address;
+    const currentUserName = this.props.currentUser.profile.name;
+    console.log(this.props.currentUser);
 
     return (
-      <nav className="nav navbar-default">
-        <div className="navbar-header">
-          <Link to="/teams" className="navbar-brand">Spec Creator</Link>
-        </div>
-        <ul className="nav navbar-nav">
-          <li className="dropdown">
+      <footer className="sidebar-footer">
+        <ul className="list-style-none line-height-small">
+          <li className="dropdown dropup">
             <a
               href="#"
               className="dropdown-toggle"
@@ -29,7 +28,12 @@ class Header extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              {currentUserEmail} <span className="caret"></span>
+              <div className="footer-user-name">
+                <span>{currentUserName}</span><span className="caret"></span>
+              </div>
+              <div className="footer-email small-font">
+                <span>{currentUserEmail}</span>
+              </div>
             </a>
             <ul className="dropdown-menu">
               <li><a href="#">Reset Password</a></li>
@@ -46,7 +50,7 @@ class Header extends Component {
             </ul>
           </li>
         </ul>
-      </nav>
+      </footer>
     );
   }
 };

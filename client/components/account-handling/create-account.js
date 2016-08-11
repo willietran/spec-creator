@@ -9,7 +9,7 @@ class CreateAccount extends Component {
     const password = this.refs.registerPassword.value;
 
     Accounts.createUser({
-      name,
+      profile: { name },
       email,
       password,
     }, (error) => {

@@ -21,7 +21,6 @@ class EditSpec extends Component {
             <div key={contentQuestion}>
               <p className="lead-font">{contentQuestion}</p>
               <textarea
-                contentEditable="true"
                 className="width-100 response-font"
                 ref={contentQuestion}
                 value={this.props.spec.content[contentQuestion]}

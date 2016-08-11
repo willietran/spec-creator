@@ -7,6 +7,7 @@ import { Link } from 'react-router';
 //Components
 import TeamList from './team-list.js';
 import Header from '../header';
+import SideBarMain from '../sidebar/sidebar-main';
 
 class TeamMain extends Component {
   render() {
@@ -21,8 +22,7 @@ class TeamMain extends Component {
 
     return (
       <div>
-        <Header currentUser={this.props.currentUser} />
-        <TeamList team={this.props.team}/>
+        <SideBarMain currentUser={this.props.currentUser} team={this.props.team}/>
       </div>
     );
   }

@@ -22,7 +22,6 @@ class SpecMain extends Component {
     }
 
   //TODO:
-    //Create SpecHeader
     //Design EditSpec
 
     return(
