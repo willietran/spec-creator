@@ -13,14 +13,13 @@ class SpecList extends Component {
 
   onSubmitClick(event) {
     event.preventDefault;
-    const { teamId } = this.props.params;
-    console.log("Create Spec Pressed: " + teamId)
+    const { team } = this.props.specs[0];
+
 
     Meteor.call('specs.insert',
-      teamId,
+      team,
       (error, specId) => {
-        browserHistory.push("/" + teamId + "/specs/" + specId + "/edit/")
-        console.log("SpecId: " + specId)
+        browserHistory.push("/" + team + "/specs/" + specId + "/edit/")
       }
     )
   }
@@ -29,25 +28,40 @@ class SpecList extends Component {
   renderList() {
     if (this.props) {
       return this.props.specs.map(spec => {
-        const { teamId } = this.props.params
-        const url = "/" + teamId + "/specs/" + spec._id + "/edit";
+        const { team } = spec;
+        const url = "/" + team + "/specs/" + spec._id + "/edit";
         return (
-          <li className="list-group-item" key={spec._id}>
-            <Link to={url} className="pull-left">Title: {spec.specTitle}</Link>
+          <div className="list-group-item list-item" key={spec._id}>
+            <div className="list-content">
+              <Link
+                to={url}
+                className="pull-left spec-list-item"
+              >
+                <span
+                  className="
+                    pull-left
+                    glyphicon
+                    glyphicon-list-alt
+                    list-item-glyph">
+                </span>
+                {spec.specTitle}
+              </Link>
+            </div>
             <span className="pull-right">
               <button
-                className="btn btn-danger"
+                className="no-style-button"
                 onClick={() => this.onSpecRemove(spec)}>
-                Delete Spec
+                <span className="glyphicon glyphicon-trash float-right"></span>
               </button>
             </span>
-          </li>
+          </div>
         );
       });
     }
   }
 
   render() {
+    console.log(this.props);
     if(this.props.specs.length === 0) {
       return(
         <div>
@@ -61,27 +75,28 @@ class SpecList extends Component {
       );
     } else {
       return (
-        <div>
-          <button
-            className="btn btn-success"
-            onClick={this.onSubmitClick.bind(this)}>
-            Create New Spec
-          </button>
-          <ul>
-            {this.renderList()}
-          </ul>
+        <div className="list-container">
+          <div className="list-header">
+            <div>
+              <h2 className="lead-font">Team Specs</h2>
+            </div>
+            <div>
+              <button
+                className="btn create-spec-button pull-right"
+                onClick={this.onSubmitClick.bind(this)}>
+                Create
+              </button>
+            </div>
+          </div>
+          <div>
+            <div className="top-margin-small list-items list-group">
+              {this.renderList()}
+            </div>
+          </div>
         </div>
       );
     }
   }
 };
 
-export default createContainer((props) => {
-  Meteor.subscribe('specs');
-
-  const { teamId } = props.params;
-
-  return {
-    specs: Specs.find({ team: teamId }).fetch()
-  };
-}, SpecList);
+export default SpecList;

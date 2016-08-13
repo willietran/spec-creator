@@ -24,6 +24,12 @@ Meteor.startup(() => {
     return Specs.find({ team: { $in: teamListMap } });
   });
 
+  Meteor.publish('userDocs', function() {
+    const user = Meteor.users.findOne(this.userId);
+
+    return Specs.find({ createdBy: this.userId });
+  })
+
   Meteor.publish('teamMembers', function() {
     const user = Meteor.users.findOne(this.userId);
 

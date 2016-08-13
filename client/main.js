@@ -16,6 +16,7 @@ import EditSpec from './components/specs/edit-spec';
 import SpecMain from './components/specs/spec-main';
 import CreateAccount from './components/account-handling/create-account';
 import Login from './components/account-handling/login';
+import TeamSpec from './components/teams/team-spec';
 
 // Collections
 import { Teams } from '../imports/collections/teams';
@@ -34,7 +35,7 @@ const routes = (
       <Route path=":teamId/create-template" component={CreateTemplateTitle} />
       <Route path=":teamId/templates/:templateId" component={CreateTemplateSections} />
       <Route path=":teamId/templates" component={TemplateList} />
-      <Route path=":teamId/specs" component={SpecList} />
+      <Route path=":teamId/specs" component={TeamSpec} />
       <Route path=":teamId/create-spec" component={CreateSpecTitle} />
       <Route path=":teamId/specs/:specId/edit" component={SpecMain} />
     </Route>

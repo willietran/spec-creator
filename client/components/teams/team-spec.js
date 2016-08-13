@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Teams } from '../../../imports/collections/teams';
-import { Specs } from '../../../imports/collections/specs';
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router';
 
 //Components
 import SideBarMain from '../sidebar/sidebar-main';
-import RecentSpecList from '../specs/recent-spec-list';
+import SpecList from '../specs/spec-list';
 
-class TeamMain extends Component {
+//Collections
+import { Teams } from '../../../imports/collections/teams';
+import { Specs } from '../../../imports/collections/specs';
+
+class TeamSpec extends Component {
   render() {
     if (!this.props.currentUser) {
       return (
@@ -23,19 +25,21 @@ class TeamMain extends Component {
     return (
       <div>
         <SideBarMain currentUser={this.props.currentUser} team={this.props.team} />
-        <RecentSpecList userDoc={this.props.userDoc} />
+        <SpecList specs={this.props.specs} />
       </div>
     );
   }
 };
 
 export default createContainer((props) => {
+  Meteor.subscribe('specs');
   Meteor.subscribe('teams');
-  Meteor.subscribe('userDocs');
+
+  const { teamId } = props.params;
 
   return {
     team: Teams.find({}).fetch(),
     currentUser: Meteor.user(),
-    userDoc: Specs.find({}).fetch()
+    specs: Specs.find({ team: teamId }).fetch()
   };
-}, TeamMain);
+}, TeamSpec);

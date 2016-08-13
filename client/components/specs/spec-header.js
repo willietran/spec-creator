@@ -6,7 +6,7 @@ class SpecHeader extends Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">FeaturePad</a>
+            <a className="navbar-brand" href="/teams">FeaturePad</a>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
