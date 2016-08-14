@@ -23,37 +23,58 @@ class CreateAccount extends Component {
 
   render() {
     return (
-      <div>
-        <h2 className="text-center">Create your account</h2>
-          <div className="input-group text-center container">
+      <div className="signup-container">
+        <div className="split-pane-left">
+          <h2 className="text-center lead-font top-margin-medium">Create your account</h2>
+          <div className="signup-input-group">
+            <div className="row">
+              <div className="col-xs-12">
+                <div>
+                  <label for="signup-name" className="signup-label">Name</label>
+                  <input
+                    id="signup-name"
+                    className="form-control signup-field"
+                    ref="registerName"
+                    type="name"
+                    placeholder="Your Full Name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="signup-email" className="signup-label">Work Email</label>
+                    <input
+                      id="signup-email"
+                      className="form-control signup-field"
+                      ref="registerEmail"
+                      type="email"
+                      placeholder="you@yourcompany.com"
+                      required
+                    />
+                </div>
+                <div>
+                  <label for="signup-password" className="signup-label">Password</label>
+                  <input
+                    id="signup-password"
+                    className="form-control signup-field"
+                    ref="registerPassword"
+                    type="password"
+                    placeholder="(at least six characters)"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
             <div className="row">
               <div className="col-xs-4 col-xs-offset-4">
-                <input
-                  className="form-control"
-                  ref="registerName"
-                  type="name"
-                  placeholder="Your Full Name"
-                />
-                <input
-                  className="form-control"
-                  ref="registerEmail"
-                  type="email"
-                  placeholder="you@yourcompany.com"
-                />
-                <input
-                  className="form-control"
-                  ref="registerPassword"
-                  type="password"
-                  placeholder="(at least six characters)"
-                />
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary signup-button"
                   onClick={this.onSubmitClick.bind(this)}>
                   Next
                 </button>
               </div>
             </div>
           </div>
+        </div>
       </div>
     );
   }

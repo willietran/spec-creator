@@ -7,7 +7,6 @@ class CreateSpecTitle extends Component {
   }
 
   render() {
-    console.log(this.props.currentUser);
     return (
       <div className="row" id="editor-container">
         <div

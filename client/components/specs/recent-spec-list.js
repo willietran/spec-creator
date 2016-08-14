@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 class RecentSpecList extends Component {
   onSpecRemove(spec) {
     Meteor.call('specs.remove', spec)
+  }
+
+  onNoSpecSubmitClick(event) {
+    event.preventDefault;
+    const team = this.props.team[0]._id
+
+    Meteor.call('specs.insert',
+      team,
+      (error, specId) => {
+        browserHistory.push("/" + team + "/specs/" + specId + "/edit/")
+      }
+    )
   }
 
   renderList() {
@@ -32,7 +44,11 @@ class RecentSpecList extends Component {
               <button
                 className="no-style-button"
                 onClick={() => this.onSpecRemove(spec)}>
-                <span className="glyphicon glyphicon-trash float-right"></span>
+                <span className="
+                  glyphicon
+                  glyphicon-trash
+                  float-right">
+                </span>
               </button>
             </span>
           </div>
@@ -42,18 +58,35 @@ class RecentSpecList extends Component {
   }
 
   render() {
-    return (
-      <div className="list-container">
-        <div className="list-header">
-          <h2 className="lead-font">Your Specs</h2>
-        </div>
-        <div>
-          <div className="top-margin-small list-items list-group">
-            {this.renderList()}
+    if(this.props.userDoc.length === 0) {
+      return(
+        <div className="list-container no-spec-container">
+          <div className="list-header no-spec-header">
+            <h3>You have no specs!</h3>
+          </div>
+          <div>
+            <button
+              className="btn signup-button"
+              onClick={this.onNoSpecSubmitClick.bind(this)}>
+              Create New Spec
+            </button>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="list-container">
+          <div className="list-header">
+            <h2 className="lead-font">Your Specs</h2>
+          </div>
+          <div>
+            <div className="top-margin-small list-items list-group">
+              {this.renderList()}
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 };
 

@@ -14,14 +14,13 @@ class Header extends Component {
   render() {
     const currentUserEmail = this.props.currentUser.emails[0].address;
     const currentUserName = this.props.currentUser.profile.name;
-    console.log(this.props.currentUser);
 
     return (
       <footer className="sidebar-footer">
         <ul className="list-style-none line-height-small">
           <li className="dropdown dropup">
-            <a
-              href="#"
+            <Link
+              to="#"
               className="dropdown-toggle"
               data-toggle="dropdown"
               role="button"
@@ -34,18 +33,18 @@ class Header extends Component {
               <div className="footer-email small-font">
                 <span>{currentUserEmail}</span>
               </div>
-            </a>
+            </Link>
             <ul className="dropdown-menu">
               <li><a href="#">Reset Password</a></li>
               <li role="separator" className="divider"></li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="/login"
                   ref="logout"
                   onClick={this.onLogoutClick.bind(this)}
                 >
                   Logout
-                </a>
+                </Link>
               </li>
             </ul>
           </li>

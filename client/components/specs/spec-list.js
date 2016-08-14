@@ -24,6 +24,18 @@ class SpecList extends Component {
     )
   }
 
+  onNoSpecSubmitClick(event) {
+    event.preventDefault;
+    const { teamId } = this.props.params;
+
+    Meteor.call('specs.insert',
+      teamId,
+      (error, specId) => {
+        browserHistory.push("/" + teamId + "/specs/" + specId + "/edit/")
+      }
+    )
+  }
+
 
   renderList() {
     if (this.props) {
@@ -51,7 +63,11 @@ class SpecList extends Component {
               <button
                 className="no-style-button"
                 onClick={() => this.onSpecRemove(spec)}>
-                <span className="glyphicon glyphicon-trash float-right"></span>
+                <span className="
+                  glyphicon
+                  glyphicon-trash
+                  float-right">
+                </span>
               </button>
             </span>
           </div>
@@ -61,16 +77,19 @@ class SpecList extends Component {
   }
 
   render() {
-    console.log(this.props);
     if(this.props.specs.length === 0) {
       return(
-        <div>
-          <h3>You have no specs! Create one!</h3>
-          <button
-            className="btn btn-success"
-            onClick={this.onSubmitClick.bind(this)}>
-            Create New Spec
-          </button>
+        <div className="list-container no-spec-container">
+          <div className="list-header no-spec-header">
+            <h3>You have no specs!</h3>
+          </div>
+          <div>
+            <button
+              className="btn signup-button"
+              onClick={this.onNoSpecSubmitClick.bind(this)}>
+              Create New Spec
+            </button>
+          </div>
         </div>
       );
     } else {
@@ -84,7 +103,7 @@ class SpecList extends Component {
               <button
                 className="btn create-spec-button pull-right"
                 onClick={this.onSubmitClick.bind(this)}>
-                Create
+                Create Spec
               </button>
             </div>
           </div>

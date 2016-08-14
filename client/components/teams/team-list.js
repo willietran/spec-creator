@@ -9,18 +9,24 @@ class TeamList extends Component {
   }
 
   renderList() {
-    console.log(this.props.teams);
     return this.props.teams.map(team => {
       const url = "/" + team._id + "/specs";
 
       return (
         <li key={team._id}>
-          <Link className="list-team-name" to={url}>{team.teamName}</Link>
+          <Link
+            className="list-team-name"
+            to={url}>{team.teamName}
+          </Link>
           <span className="pull-right">
             <button
               className="no-style-button"
               onClick={() => this.onTeamRemove(team)}>
-              <span className="glyphicon glyphicon-trash float-right"></span>
+              <span className="
+                glyphicon
+                glyphicon-trash
+                float-right">
+              </span>
             </button>
           </span>
         </li>
@@ -33,7 +39,7 @@ class TeamList extends Component {
       <div>
         <div className="sidebar-top">
           <span>
-            <a href="/teams" className="logo">FeaturePad</a>
+            <Link to="/teams" className="logo">FeaturePad</Link>
           </span>
         </div>
         <div className="teams-header top-margin-large">
@@ -42,7 +48,11 @@ class TeamList extends Component {
             <button
               className="no-style-button">
                 <Link className="link" to="/create-team">
-                  <span className="glyphicon glyphicon-plus create-team-glyph"></span>
+                  <span className="
+                    glyphicon
+                    glyphicon-plus
+                    create-team-glyph">
+                  </span>
                 </Link>
             </button>
           </span>

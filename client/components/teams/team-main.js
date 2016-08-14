@@ -22,8 +22,15 @@ class TeamMain extends Component {
 
     return (
       <div>
-        <SideBarMain currentUser={this.props.currentUser} team={this.props.team} />
-        <RecentSpecList userDoc={this.props.userDoc} />
+        <SideBarMain
+          currentUser={this.props.currentUser}
+          team={this.props.team}
+        />
+        <RecentSpecList
+          userDoc={this.props.userDoc}
+          params={this.props.params}
+          team={this.props.team}
+        />
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class SpecHeader extends Component {
   render() {
@@ -6,7 +7,7 @@ class SpecHeader extends Component {
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="/teams">FeaturePad</a>
+            <Link className="navbar-brand" to="/teams">FeaturePad</Link>
           </div>
 
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

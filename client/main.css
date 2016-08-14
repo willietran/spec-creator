@@ -130,6 +130,13 @@ input, textarea {
   color: #337ab7;
 }
 
+.no-spec-header > h3 {
+  font-size: 40px;
+  text-align: center;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
 /*** Button Properties ***/
 #login-buttons {
   margin: 18px;
@@ -149,9 +156,10 @@ input, textarea {
   color: #fff;
   border: none;
   background-color: #007ee5;
-  float: right;
   margin-top: 13px;
 }
+
+
 
 .no-style-button {
   /*width   : 80px;*/
@@ -283,4 +291,86 @@ input, textarea {
 
 .footer-username > span:hover {
   color: #337ab7;
+}
+
+.split-pane-left {
+  background-color: #f0f4f7;
+  color: #434245;
+  z-index: 1;
+  overflow-y: auto;
+  word-wrap: break-word;
+  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+}
+
+.signup-container {
+  background-color: #b3d4fc;
+}
+
+.split-pane-left > h2 {
+  font-size: 35px;
+  color: #1f8ceb;
+  margin-bottom: 35px;
+  font-weight: lighter;
+}
+
+.signup-input-group {
+  box-shadow: 0 2px 1px #e6e5e5;
+  border: 1px solid #dde5ed;
+  background-color: #fff;
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 670px;
+}
+
+.signup-label {
+  margin-top: 15px;
+  text-transform: capitalize;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #637280;
+  font-weight: 300;
+}
+
+.signup-field {
+  border-radius: 6px !important;
+  border: 1px solid #dde5ed;
+  color: #2e2e7f;
+  background-color: #fafbfc;
+  padding: 0 15px;
+  height: 50px;
+}
+
+.signup-button, .signup-button:hover .signup-button:focus {
+  background: #1f8ceb;
+  color: #fff;
+  padding: 14px 32px 16px;
+  font-size: 20px;
+  -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
+  line-height: 15px;
+  font-weight: 900;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  cursor: pointer;
+  text-shadow: 0 1px 1px rgba(0,0,0,.1);
+  border: none;
+  border-radius: .25rem;
+  box-shadow: none;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  text-align: center;
+  white-space: nowrap;
+  margin: 40px 0 0 auto;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.no-spec-container {
+  text-align: center;
 }
