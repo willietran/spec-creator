@@ -50,7 +50,7 @@ class TeamList extends Component {
                 <Link className="link" to="/create-team">
                   <span className="
                     glyphicon
-                    glyphicon-plus
+                    glyphicon-plus-sign
                     create-team-glyph">
                   </span>
                 </Link>

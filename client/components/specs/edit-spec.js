@@ -31,7 +31,6 @@ class EditSpec extends Component {
             </div>
           </div>
         </div>
-
       );
     });
   }

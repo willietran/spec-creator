@@ -38,7 +38,7 @@ class CreateTeam extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-xs-4 col-xs-offset-4">
+              <div className="col-xs-4 col-xs-offset-4 text-center">
                 <button
                   className="btn btn-primary signup-button"
                   onClick={this.onCreateTeamClick.bind(this)}>

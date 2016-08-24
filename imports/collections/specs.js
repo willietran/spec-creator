@@ -5,7 +5,7 @@ Meteor.methods({
   'specs.insert': function(teamId) {
     return Specs.insert({
       createdAt: new Date(),
-      specTitle: 'Give me a name...',
+      specTitle: '',
       team: teamId,
       createdBy: this.userId,
       content: {}
